@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test promises</title>
+    <script type="text/javascript">
+      let promiseToCleanTheRoom = new Promise(function(resolve,reject){
+        //Cleaning the room
+        let isClean = false;
+
+        if(isClean){
+          resolve('Clean');
+        } else{
+          reject('reject');
+        }
+      });
+
+      promiseToCleanTheRoom.then(function(fromResolve){
+        console.log('the room is'+ fromResolve);
+      },function(reject){
+        console.log('the room is '+ reject)
+      })
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

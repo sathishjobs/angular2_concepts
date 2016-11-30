@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingListDirectiveApp">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src='angular.min.js'></script>
+    <script type="text/javascript" src="app.js"></script>
+    <!-- <link rel="stylesheet" href="/css/master.css" media="screen" title="no title"> -->
+    <title>Directives with Transclude</title>
+    <style media="screen">
+      .error{
+        color:red;
+        display:none;
+      }
+      #list1,#list2{
+        float : left;
+      }
+      #list2{
+        margin-left:20px;
+      }
+
+      .warning{
+        font-style:italic;
+      }
+
+      .title{
+        background-color:#383838;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Directives with Transclude</h1>
+    <!-- List #1 - unlimited items -->
+    <div id="list1" ng-controller="ShoppingListController1 as list1">
+      <input type="text" ng-model="list1.itemName" placeholder="item name">
+      <input type="text" ng-model="list1.itemQuantity" placeholder="quantity">
+      <button ng-click="list1.addItem();">Add Item</button>
+      <span>{{list1.lastRemoved}}</span>
+      <shopping-list items="list1.items" title="{{list1.title}}" bad-remove="list1.removeItem" on-remove="list1.removeItem(index)">
+        <span class="warning">WARNING! WARNING! {{list1.warning}}</span>
+      </shopping-list>
+      <shopping-list items="list1.items" title="{{list1.title}}" bad-remove="list1.removeItem" on-remove="list1.removeItem(index)">
+        <div class="">
+          <div class="title">
+            OH, THE HORROR !
+          </div>
+          {{list1.warning}}
+        </div>
+      </shopping-list>
+
+    </div>
+  </body>
+</html>

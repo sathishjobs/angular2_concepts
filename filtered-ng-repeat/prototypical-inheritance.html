@@ -1,0 +1,42 @@
+<script>
+var parent ={
+  value : "parentValue",
+  obj:{
+    objValue:'ParentObjValue'
+  },
+  walk:function(){
+    console.log("walking");
+  }
+};
+
+var child = Object.create(parent);
+console.log("Child - child.value",child.value);
+console.log("Child - child.obj.objValue:",child.obj.objValue);
+console.log("Paraent - parent.value:",parent.value);
+console.log("Parent:",parent);
+console.log("Child:",child);
+
+console.log("======");
+child.value="childValue";
+child.another_obj={
+  firstname:'sathish kumar'
+}
+
+child.obj.objValue="childObjValue";
+console.log("*** CHANGED: child.value='childValue'");
+console.log("*** CHANGED: child.obj.objValue='childObjValue'");
+console.log("CHILD-child.value:",child.value);
+console.log("CHILD-child.obj.objValue:",child.obj.objValue);
+console.log("PARENT - parent.value:",parent.value);
+console.log("PARENT - parent.obj.objValue:",parent.obj.objValue);
+console.log("Parent:",parent);
+console.log("Child:",child);
+console.log("child.obj === parent.obj? ", child.obj === parent.obj);
+
+var grandChild = Object.create(child);
+
+console.log("=======");
+console.log(grandChild.walk());
+console.log(grandChild);
+
+</script>

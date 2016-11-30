@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='ControllerAsApp'>
+  <head>
+    <meta charset="utf-8">
+    <title> Controller as syntax :</title>
+    <script type="text/javascript" src='angular.min.js'></script>
+    <script type="text/javascript" src='app.js'></script>
+
+  </head>
+  <body>
+    <div class="" ng-controller='ParentController1'>
+      <div class="" ng-controller='ChildController1'>
+
+      </div>
+    </div>
+
+    <div class="" ng-controller='ParentController2 as parent'>
+      <input type='text'   ng-model='parent.value'>
+
+      <div class="" ng-controller='ChildController2 as child'>
+        Child value: {{child.value}}
+        Parent value : {{parent.value}}
+        <input type="text" ng-model="child.value" name="name" value="">
+      </div>
+    </div>
+
+  </body>
+</html>
